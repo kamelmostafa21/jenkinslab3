@@ -37,7 +37,7 @@ pipeline {
                 stage('Java Image') {
                     steps {
                         script {
-                            dockerx.buildJava()
+                            dockerx.buildJava('kamelmostafa/java-app', 'latest')
                             dockerx.push('kamelmostafa/java-app', 'latest')
                         }
                     }
@@ -47,7 +47,7 @@ pipeline {
                     steps {
                         
                         script {
-                            dockerx.build('kamelmostafa/python-app', 'latest')
+                            dockerx.buildPython('kamelmostafa/python-app', 'latest')
                             dockerx.push('kamelmostafa/python-app', 'latest')
                         }
                         
